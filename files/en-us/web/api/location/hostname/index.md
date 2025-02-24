@@ -1,31 +1,31 @@
 ---
-title: 'Location: hostname'
+title: "Location: hostname property"
+short-title: hostname
 slug: Web/API/Location/hostname
-tags:
-  - API
-  - Location
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.Location.hostname
 ---
+
 {{ApiRef("URL API")}}
 
-The **`hostname`** property of the {{domxref("Location")}}
-interface is a {{domxref("USVString")}} containing the domain of the URL.
+The **`hostname`** property of the {{domxref("Location")}} interface is a string containing either the {{glossary("domain name")}} or {{glossary("IP address")}} of the location URL. If the URL does not have a hostname, this property contains an empty string, `""`. IPv4 and IPv6 addresses are normalized, such as stripping leading zeros, and domain names are converted to [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name).
 
-## Syntax
+See {{domxref("URL.hostname")}} for more information.
 
-```js
-string = object.hostname;
-object.hostname = string;
-```
+## Value
+
+A string.
 
 ## Examples
 
 ```js
-// Let's an <a id="myAnchor" href="/en-US/docs/Location.hostname"> element be in the document
-var anchor = document.getElementById("myAnchor");
-var result = anchor.hostname; // Returns:'developer.mozilla.org'
+console.log(window.location.hostname);
+// developer.mozilla.org
+
+const anchor = document.createElement("a");
+anchor.href = "https://developer.mozilla.org:4097/";
+console.log(anchor.hostname === "developer.mozilla.org");
+// The port number is not included in hostname
 ```
 
 ## Specifications

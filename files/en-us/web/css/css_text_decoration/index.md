@@ -1,27 +1,24 @@
 ---
-title: CSS Text Decoration
-slug: Web/CSS/CSS_Text_Decoration
-tags:
-  - CSS
-  - CSS Text Decoration
-  - Guide
-  - Overview
-  - Reference
+title: CSS text decoration
+slug: Web/CSS/CSS_text_decoration
+page-type: css-module
+spec-urls:
+  - https://drafts.csswg.org/css-text-decor/
+  - https://drafts.csswg.org/css-text-decor-4/
 ---
+
 {{CSSRef}}
 
-**CSS Text Decoration** is a module of CSS that defines features relating to text decoration, such as underlines, text shadows, and emphasis marks.
+The **CSS text decoration** module defines features relating to text decoration, such as underlines, text shadows, and emphasis marks.
 
 ## Reference
 
 ### Properties
 
-- {{cssxref("letter-spacing")}}
-- {{cssxref("text-align")}}
 - {{cssxref("text-decoration")}}
 - {{cssxref("text-decoration-color")}}
 - {{cssxref("text-decoration-line")}}
-- {{cssxref("text-decoration-offset")}}
+- {{cssxref("text-decoration-skip")}}
 - {{cssxref("text-decoration-skip-ink")}}
 - {{cssxref("text-decoration-style")}}
 - {{cssxref("text-decoration-thickness")}}
@@ -29,38 +26,33 @@ tags:
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-emphasis-position")}}
 - {{cssxref("text-emphasis-style")}}
-- {{cssxref("text-indent")}}
-- {{cssxref("text-rendering")}}
 - {{cssxref("text-shadow")}}
-- {{cssxref("text-transform")}}
-- {{cssxref("white-space")}}
-- {{cssxref("word-spacing")}}
+- {{cssxref("text-underline-offset")}}
+- {{cssxref("text-underline-position")}}
 
-## Guides
-
-_None._
+The specification also defines the `text-decoration-skip-box`, `text-decoration-skip-self`, `text-decoration-skip-spaces`, `text-decoration-trim`, and `text-emphasis-skip` properties, which are not yet supported by any browser.
 
 ## Examples
 
 ```css
 .under {
-  text-decoration: underline red;
+  text-decoration: underline red;
 }
 
 .over {
-  text-decoration: wavy overline lime;
+  text-decoration: wavy overline lime;
 }
 
 .line {
-  text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .plain {
-  text-decoration: none;
+  text-decoration: none;
 }
 
 .underover {
-  text-decoration: dashed underline overline;
+  text-decoration: dashed underline overline;
 }
 
 .thick {
@@ -76,23 +68,29 @@ _None._
 <p class="under">This text has a line underneath it.</p>
 <p class="over">This text has a line over it.</p>
 <p class="line">This text has a line going through it.</p>
-<p>This <a class="plain" href="#">link will not be underlined</a>,
-    as links generally are by default. Be careful when removing
-    the text decoration on anchors since users often depend on
-    the underline to denote hyperlinks.</p>
+<p>
+  This <a class="plain" href="#">link will not be underlined</a>, as links
+  generally are by default. Be careful when removing the text decoration on
+  anchors since users often depend on the underline to denote hyperlinks.
+</p>
 <p class="underover">This text has lines above <em>and</em> below it.</p>
-<p class="thick">This text has a really thick purple underline in supporting browsers.</p>
-<p class="blink">This text might blink for you,
-    depending on the browser you use.</p>
+<p class="thick">
+  This text has a really thick purple underline in supporting browsers.
+</p>
+<p class="blink">
+  This text might blink for you, depending on the browser you use.
+</p>
 ```
 
 {{EmbedLiveSample('Examples','auto','320')}}
 
 ## Specifications
 
-| Specification                                    | Status                                       | Comment            |
-| ------------------------------------------------ | -------------------------------------------- | ------------------ |
-| {{SpecName('CSS4 Text Decoration')}} | {{Spec2('CSS4 Text Decoration')}} |                    |
-| {{SpecName('CSS3 Text Decoration')}} | {{Spec2('CSS3 Text Decoration')}} |                    |
-| {{SpecName('CSS2.1', 'text.html')}} | {{Spec2('CSS2.1')}}                     |                    |
-| {{SpecName('CSS1')}}                     | {{Spec2('CSS1')}}                     | Initial definition |
+{{Specifications}}
+
+## See also
+
+- [CSS fonts](/en-US/docs/Web/CSS/CSS_fonts) module
+- [CSS ruby layout](/en-US/docs/Web/CSS/CSS_ruby_layout) module
+- [CSS text](/en-US/docs/Web/CSS/CSS_text) module
+- [CSS writing modes](/en-US/docs/Web/CSS/CSS_writing_modes) module

@@ -1,23 +1,34 @@
 ---
 title: Object.getOwnPropertyDescriptors()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
-tags:
-  - JavaScript
-  - Method
-  - Object
-  - Polyfill
+page-type: javascript-static-method
 browser-compat: javascript.builtins.Object.getOwnPropertyDescriptors
 ---
+
 {{JSRef}}
 
-The **`Object.getOwnPropertyDescriptors()`** method returns all
+The **`Object.getOwnPropertyDescriptors()`** static method returns all
 own property descriptors of a given object.
 
-{{EmbedInteractiveExample("pages/js/object-getownpropertydescriptors.html")}}
+{{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptors()")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+const descriptors1 = Object.getOwnPropertyDescriptors(object1);
+
+console.log(descriptors1.property1.writable);
+// Expected output: true
+
+console.log(descriptors1.property1.value);
+// Expected output: 42
+```
 
 ## Syntax
 
-```js
+```js-nolint
 Object.getOwnPropertyDescriptors(obj)
 ```
 
@@ -61,16 +72,16 @@ A _property descriptor_ is a record with some of the following attributes:
 
 ## Examples
 
-### Creating a shallow clone
+### Creating a shallow copy
 
 Whereas the {{jsxref("Object.assign()")}} method will only copy enumerable and own
 properties from a source object to a target object, you are able to use this method and
-{{jsxref("Object.create()")}} for a shallow copy between two unknown objects:
+{{jsxref("Object.create()")}} for a [shallow copy](/en-US/docs/Glossary/Shallow_copy) between two unknown objects:
 
 ```js
 Object.create(
   Object.getPrototypeOf(obj),
-  Object.getOwnPropertyDescriptors(obj)
+  Object.getOwnPropertyDescriptors(obj),
 );
 ```
 
@@ -87,12 +98,9 @@ superclass.prototype = {
   // Define the superclass constructor, methods, and properties here
 };
 function subclass() {}
-subclass.prototype = Object.create(
-  superclass.prototype,
-  {
-    // Define the subclass constructor, methods, and properties here
-  }
-);
+subclass.prototype = Object.create(superclass.prototype, {
+  // Define the subclass constructor, methods, and properties here
+});
 ```
 
 ## Specifications
@@ -105,7 +113,6 @@ subclass.prototype = Object.create(
 
 ## See also
 
-- A polyfill of `Object.getOwnPropertyDescriptors` is available in [`core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [Polyfill of `Object.getOwnPropertyDescriptors` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}
 - {{jsxref("Object.defineProperty()")}}
-- [Polyfill](https://github.com/tc39/proposal-object-getownpropertydescriptors)

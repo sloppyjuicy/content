@@ -1,24 +1,12 @@
 ---
-title: RTCRtpReceiver.transport
+title: "RTCRtpReceiver: transport property"
+short-title: transport
 slug: Web/API/RTCRtpReceiver/transport
-tags:
-  - API
-  - Communications
-  - DTLS
-  - Media
-  - Networking
-  - RTCP
-  - RTCRtpReceiver
-  - RTP
-  - Reference
-  - Transport
-  - WebRTC
-  - WebRTC API
-  - WebRTC Device API
-  - receiver
+page-type: web-api-instance-property
 browser-compat: api.RTCRtpReceiver.transport
 ---
-{{DefaultAPISidebar("WebRTC")}}
+
+{{APIRef("WebRTC")}}
 
 The read-only **`transport`** property of an
 {{domxref("RTCRtpReceiver")}} object provides the {{domxref("RTCDtlsTransport")}} object
@@ -28,13 +16,7 @@ Real-time Transport Control Protocol ({{Glossary("RTCP")}}) packets.
 This transport is responsible for receiving the data for the media on the receiver's
 {{domxref("RTCRtpReceiver.track", "track")}}.
 
-## Syntax
-
-```js
-let transport = rtcRtpReceiver.transport;
-```
-
-### Value
+## Value
 
 An {{domxref("RTCDtlsTransport")}} object representing the underlying transport being
 used by the receiver to exchange packets with the remote peer, or `null` if
@@ -47,8 +29,7 @@ When the `RTCRtpReceiver` is first created, the value of
 `RTCDtlsTransport` once the receiver's transport has been established.
 
 Note that when bundling is in effect—that is, when the {{domxref("RTCPeerConnection")}}
-was created with an {{domxref("RTCConfiguration")}} object whose
-{{domxref("RTCConfiguration.bundlePolicy", "bundlePolicy")}} is `max-compat`
+was created with a configuration object whose `bundlePolicy` is `max-compat`
 or `max-bundle`—multiple receivers may be sharing the same transport; in this
 case, all of them are using the same connection to transmit and/or receive
 {{Glossary("RTP")}} and {{Glossary("RTCP")}} packets.

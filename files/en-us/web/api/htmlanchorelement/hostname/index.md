@@ -1,26 +1,20 @@
 ---
-title: HTMLAnchorElement.hostname
+title: "HTMLAnchorElement: hostname property"
+short-title: hostname
 slug: Web/API/HTMLAnchorElement/hostname
-tags:
-  - API
-  - HTMLAnchorElement
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.HTMLAnchorElement.hostname
 ---
+
 {{ApiRef("HTML DOM")}}
 
-The **`HTMLAnchorElement.hostname`** property is a
-{{domxref("USVString")}} containing the domain of the URL.
+The **`hostname`** property of the {{domxref("HTMLAnchorElement")}} interface is a string containing either the {{glossary("domain name")}} or {{glossary("IP address")}} of the `<a>` element's `href`. If the URL does not have a hostname, this property contains an empty string, `""`. IPv4 and IPv6 addresses are normalized, such as stripping leading zeros, and domain names are converted to [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name).
 
-## Syntax
+See {{domxref("URL.hostname")}} for more information.
 
-```js
-// Getter
-string = anchor.hostname;
-// Setter
-anchor.hostname = string;
-```
+## Value
+
+A string.
 
 ## Examples
 

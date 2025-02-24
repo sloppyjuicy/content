@@ -1,28 +1,35 @@
 ---
-title: Document.writeln()
+title: "Document: writeln() method"
+short-title: writeln()
 slug: Web/API/Document/writeln
-tags:
-  - API
-  - DOM
-  - Method
-  - Reference
+page-type: web-api-instance-method
 browser-compat: api.Document.writeln
 ---
+
 {{ ApiRef("DOM") }}
 
 Writes a string of text followed by a newline character to a document.
 
 ## Syntax
 
-    document.writeln(line);
+```js-nolint
+writeln(line)
+```
 
 ### Parameters
 
-- `line` is string containing a line of text.
+- `line`
+  - : A string containing a line of text.
 
-## Example
+### Return value
 
-    document.writeln("<p>enter password:</p>");
+None ({{jsxref("undefined")}}).
+
+## Examples
+
+```js
+document.writeln("<p>enter password:</p>");
+```
 
 ## Notes
 

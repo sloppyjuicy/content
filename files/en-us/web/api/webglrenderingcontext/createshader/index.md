@@ -1,33 +1,33 @@
 ---
-title: WebGLRenderingContext.createShader()
+title: "WebGLRenderingContext: createShader() method"
+short-title: createShader()
 slug: Web/API/WebGLRenderingContext/createShader
-tags:
-  - API
-  - Graphics
-  - Method
-  - Reference
-  - Shader
-  - WebGL
+page-type: web-api-instance-method
 browser-compat: api.WebGLRenderingContext.createShader
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The {{domxref("WebGLRenderingContext")}}
-method **`createShader()`** of the [WebGL API](/en-US/docs/Web/API/WebGL_API) creates a
+method **`createShader()`** of the [WebGL API](/en-US/docs/Web/API/WebGL_API) creates a
 {{domxref("WebGLShader")}} that can then be configured further using
 {{domxref("WebGLRenderingContext.shaderSource()")}} and
 {{domxref("WebGLRenderingContext.compileShader()")}}.
 
 ## Syntax
 
-```js
-WebGLShader gl.createShader(type);
+```js-nolint
+createShader(type)
 ```
 
 ### Parameters
 
 - `type`
-  - : Either `gl.VERTEX_SHADER` or `gl.FRAGMENT_SHADER`
+  - : Either `gl.VERTEX_SHADER` or `gl.FRAGMENT_SHADER`. The {{domxref("WebGLRenderingContext")}} will set the `gl.INVALID_ENUM` error flag if an unacceptable value has been specified.
+
+### Return value
+
+A new {{domxref("WebGLShader")}} instance, or `null` if an error occurs creating the shader (for example, because `type` was an invalid value).
 
 ## Examples
 
@@ -49,7 +49,6 @@ See {{domxref("WebGLShader")}} for usage and examples.
 - {{domxref("WebGLRenderingContext.bindAttribLocation()")}}
 - {{domxref("WebGLRenderingContext.compileShader()")}}
 - {{domxref("WebGLRenderingContext.createProgram()")}}
-- {{domxref("WebGLRenderingContext.createShader()")}}
 - {{domxref("WebGLRenderingContext.deleteProgram()")}}
 - {{domxref("WebGLRenderingContext.deleteShader()")}}
 - {{domxref("WebGLRenderingContext.detachShader()")}}

@@ -1,38 +1,30 @@
 ---
-title: URL.username
+title: "URL: username property"
+short-title: username
 slug: Web/API/URL/username
-tags:
-  - API
-  - Property
-  - Reference
-  - URL
-  - URL API
-  - username
+page-type: web-api-instance-property
 browser-compat: api.URL.username
 ---
-{{ApiRef("URL API")}}
 
-The **`username`** property of the {{domxref("URL")}} interface
-is a {{domxref("USVString")}} containing the username specified before the domain name.
+{{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-{{AvailableInWorkers}}
+The **`username`** property of the {{domxref("URL")}} interface is a string containing the username component of the URL. If the URL does not have a username, this property contains an empty string, `""`.
 
-## Syntax
+This property can be set to change the username of the URL. If the URL has no {{domxref("URL.host", "host")}} or its scheme is `file:`, then setting this property has no effect.
 
-```js
-const usernameString = url.username
-url.username = newUsername
-```
+The username is {{Glossary("Percent-encoding", "percent-encoded")}} when setting but not percent-decoded when reading.
 
-### Value
+## Value
 
-A {{domxref("USVString")}}.
+A string.
 
 ## Examples
 
 ```js
-const url = new URL('https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/username');
-console.log(url.username) // Logs "anonymous"
+const url = new URL(
+  "https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/username",
+);
+console.log(url.username); // Logs "anonymous"
 ```
 
 ## Specifications

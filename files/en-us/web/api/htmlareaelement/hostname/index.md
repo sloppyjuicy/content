@@ -1,34 +1,55 @@
 ---
-title: HTMLAreaElement.hostname
+title: "HTMLAreaElement: hostname property"
+short-title: hostname
 slug: Web/API/HTMLAreaElement/hostname
-tags:
-  - API
-  - HTMLAreaElement
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.HTMLAreaElement.hostname
 ---
+
 {{ApiRef("HTML DOM")}}
 
-The **`HTMLAreaElement.hostname`** property is a
-{{domxref("USVString")}} containing the domain of the URL.
+The **`hostname`** property of the {{domxref("HTMLAreaElement")}} interface is a string containing either the {{glossary("domain name")}} or {{glossary("IP address")}} of the `<area>` element's URL. If the URL does not have a hostname, this property contains an empty string, `""`. IPv4 and IPv6 addresses are normalized, such as stripping leading zeros, and domain names are converted to [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name).
 
-## Syntax
+See {{domxref("URL.hostname")}} for more information.
 
-```js
-// Getter
-string = area.hostname;
-// Setter
-area.hostname = string;
-```
+## Value
+
+A string containing the domain of the URL associated with the `area` element.
+It can be used as both a setter and getter.
 
 ## Examples
 
-```js
-// An <area id="myArea" href="/en-US/docs/HTMLAreaElement"> element is in the document
-const area = document.getElementById("myArea");
-HTMLAreaElement.hostname; // returns 'developer.mozilla.org'
+```html
+<textarea id="log" rows="4" cols="100"></textarea>
+<map name="infographic">
+  <area
+    id="area1"
+    shape="rect"
+    coords="184,6,253,27"
+    href="/en-US/docs/HTMLAreaElement"
+    target="_blank"
+    alt="Mozilla" />
+  <area
+    id="area2"
+    shape="circle"
+    coords="130,136,60"
+    href="https://coolexample.com/"
+    target="_blank"
+    alt="MDN" />
+</map>
 ```
+
+```js
+// An element is in the document
+const area1 = document.getElementById("area1");
+const area2 = document.getElementById("area2");
+
+const log = document.getElementById("log");
+log.textContent = `area1 hostname: ${area1.hostname} \n`; // 'developer.mozilla.org'
+log.textContent += `area2 hostname: ${area2.hostname}`; // 'coolexample.com'
+```
+
+{{EmbedLiveSample("Examples")}}
 
 ## Specifications
 

@@ -1,29 +1,24 @@
 ---
-title: HTMLAreaElement.password
+title: "HTMLAreaElement: password property"
+short-title: password
 slug: Web/API/HTMLAreaElement/password
-tags:
-  - API
-  - HTMLAreaElement
-  - Property
+page-type: web-api-instance-property
 browser-compat: api.HTMLAreaElement.password
 ---
+
 {{ApiRef("HTML DOM")}}
 
-The **`HTMLAreaElement.password`** property is a
-{{domxref("USVString")}} containing the password specified before the domain name.
+The **`password`** property of the {{domxref("HTMLAreaElement")}} interface is a string containing the password component of the `<area>` element's `href`. If the URL does not have a password, this property contains an empty string, `""`.
 
-If it is set without first setting the
-[`username`](/en-US/docs/Web/API/HTMLAreaElement/username)
-property, it silently fails.
+This property can be set to change the password of the URL. If the URL has no {{domxref("HTMLAreaElement.host", "host")}} or its scheme is `file:`, then setting this property has no effect.
 
-## Syntax
+The password is {{Glossary("Percent-encoding", "percent-encoded")}} when setting but not percent-decoded when reading.
 
-```js
-// Getter
-string = area.password;
-// Setter
-area.password = string;
-```
+See {{domxref("URL.password")}} for more information.
+
+## Value
+
+A string.
 
 ## Examples
 

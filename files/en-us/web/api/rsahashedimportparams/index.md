@@ -1,26 +1,27 @@
 ---
 title: RsaHashedImportParams
 slug: Web/API/RsaHashedImportParams
-tags:
-  - API
-  - Dictionary
-  - Reference
-  - RsaHashedImportParams
-  - Web Crypto API
+page-type: web-api-interface
+spec-urls: https://w3c.github.io/webcrypto/#dfn-RsaHashedImportParams
 ---
+
 {{ APIRef("Web Crypto API") }}
 
-The **`RsaHashedImportParams`** dictionary of the [Web Crypto API](/en-US/docs/Web/API/Web_Crypto_API) represents the object that should be passed as the `algorithm` parameter into {{domxref("SubtleCrypto.importKey()")}} or {{domxref("SubtleCrypto.unwrapKey()")}}, when importing any RSA-based key pair: that is, when the algorithm is identified as any of [RSASSA-PKCS1-v1_5](/en-US/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/en-US/docs/Web/API/SubtleCrypto/sign#rsa-pss), or [RSA-OAEP](/en-US/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep).
+The **`RsaHashedImportParams`** dictionary of the [Web Crypto API](/en-US/docs/Web/API/Web_Crypto_API) represents the object that should be passed as the `algorithm` parameter into {{domxref("SubtleCrypto.importKey()")}} or {{domxref("SubtleCrypto.unwrapKey()")}}, when importing any RSA-based key pair: that is, when the algorithm is identified as any of [RSASSA-PKCS1-v1_5](/en-US/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/en-US/docs/Web/API/SubtleCrypto/sign#rsa-pss), or [RSA-OAEP](/en-US/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep).
 
-## Properties
+## Instance properties
 
 - `name`
-  - : A {{domxref("DOMString")}}. This should be set to `RSASSA-PKCS1-v1_5`, `RSA-PSS`, or `RSA-OAEP`, depending on the algorithm you want to use.
+  - : A string. This should be set to `RSASSA-PKCS1-v1_5`, `RSA-PSS`, or `RSA-OAEP`, depending on the algorithm you want to use.
 - `hash`
 
-  - : A {{domxref("DOMString")}} representing the name of the [digest function](/en-US/docs/Web/API/SubtleCrypto#digest_algorithms) to use. This can be one of `SHA-256`, `SHA-384`, or `SHA-512`.
+  - : A string or an object containing a single property called `name` with a string value. It is an identifier for the [digest algorithm](/en-US/docs/Web/API/SubtleCrypto/digest) to use. This should be one of the following:
 
-    > **Warning:** Although you can technically pass `SHA-1` here, this is strongly discouraged as it is considered vulnerable.
+    - `SHA-256`: selects the [SHA-256](/en-US/docs/Web/API/SubtleCrypto/digest#supported_algorithms) algorithm.
+    - `SHA-384`: selects the [SHA-384](/en-US/docs/Web/API/SubtleCrypto/digest#supported_algorithms) algorithm.
+    - `SHA-512`: selects the [SHA-512](/en-US/docs/Web/API/SubtleCrypto/digest#supported_algorithms) algorithm.
+
+    > **Warning:** `SHA-1` is also supported here but the [SHA-1](/en-US/docs/Web/API/SubtleCrypto/digest#supported_algorithms) algorithm is considered vulnerable and should no longer be used.
 
 ## Examples
 
@@ -28,22 +29,7 @@ See the examples for {{domxref("SubtleCrypto.importKey()")}}.
 
 ## Specifications
 
-<table class="no-markdown">
-  <tbody>
-    <tr>
-      <th scope="col">Specification</th>
-      <th scope="col">Status</th>
-      <th scope="col">Comment</th>
-    </tr>
-    <tr>
-      <td>
-        {{ SpecName('Web Crypto API', '#dfn-RsaHashedImportParams', 'SubtleCrypto.RsaHashedImportParams') }}
-      </td>
-      <td>{{ Spec2('Web Crypto API') }}</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+{{Specifications}}
 
 ## Browser compatibility
 

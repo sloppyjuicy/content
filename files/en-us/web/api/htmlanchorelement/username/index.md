@@ -1,26 +1,24 @@
 ---
-title: HTMLAnchorElement.username
+title: "HTMLAnchorElement: username property"
+short-title: username
 slug: Web/API/HTMLAnchorElement/username
-tags:
-  - API
-  - HTMLAnchorElement
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.HTMLAnchorElement.username
 ---
+
 {{ApiRef("HTML DOM")}}
 
-The **`HTMLAnchorElement.username`** property is a
-{{domxref("USVString")}} containing the username specified before the domain name.
+The **`username`** property of the {{domxref("HTMLAnchorElement")}} interface is a string containing the username component of the `<a>` element's `href`. If the URL does not have a username, this property contains an empty string, `""`.
 
-## Syntax
+This property can be set to change the username of the URL. If the URL has no {{domxref("HTMLAnchorElement.host", "host")}} or its scheme is `file:`, then setting this property has no effect.
 
-```js
-// Getter
-string = anchor.username;
-// Setter
-anchor.username = string;
-```
+The username is {{Glossary("Percent-encoding", "percent-encoded")}} when setting but not percent-decoded when reading.
+
+See {{domxref("URL.username")}} for more information.
+
+## Value
+
+A string.
 
 ## Examples
 

@@ -1,25 +1,33 @@
 ---
 title: Set.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Set/add
-tags:
-  - ECMAScript 2015
-  - JavaScript
-  - Method
-  - Prototype
-  - Reference
-  - set
+page-type: javascript-instance-method
 browser-compat: javascript.builtins.Set.add
 ---
+
 {{JSRef}}
 
-The **`add()`** method appends a new element with a specified
-value to the end of a `Set` object.
+The **`add()`** method of {{jsxref("Set")}} instances inserts a new element with a specified value in to this set, if there isn't an element with the same value already in this set
 
-{{EmbedInteractiveExample("pages/js/set-prototype-add.html")}}
+{{InteractiveExample("JavaScript Demo: Set.prototype.add()")}}
+
+```js interactive-example
+const set1 = new Set();
+
+set1.add(42);
+set1.add(42);
+set1.add(13);
+
+for (const item of set1) {
+  console.log(item);
+  // Expected output: 42
+  // Expected output: 13
+}
+```
 
 ## Syntax
 
-```js
+```js-nolint
 add(value)
 ```
 
@@ -37,10 +45,10 @@ The `Set` object with added value.
 ### Using the add() method
 
 ```js
-var mySet = new Set();
+const mySet = new Set();
 
 mySet.add(1);
-mySet.add(5).add('some text'); // chainable
+mySet.add(5).add("some text"); // chainable
 
 console.log(mySet);
 // Set [1, 5, "some text"]

@@ -1,15 +1,11 @@
 ---
-title: Window.confirm()
+title: "Window: confirm() method"
+short-title: confirm()
 slug: Web/API/Window/confirm
-tags:
-  - API
-  - HTML DOM
-  - Method
-  - Reference
-  - Window
-  - confirm
+page-type: web-api-instance-method
 browser-compat: api.Window.confirm
 ---
+
 {{ApiRef("Window")}}
 
 `window.confirm()` instructs the browser to display a dialog with an optional message, and to wait until the user either confirms or cancels the dialog.
@@ -18,42 +14,53 @@ Under some conditions — for example, when the user switches tabs — the brows
 
 ## Syntax
 
-```js
-result = window.confirm(message);
+```js-nolint
+confirm()
+confirm(message)
 ```
 
 ### Parameters
 
-- `message`
+- `message` {{optional_inline}}
   - : A string you want to display in the confirmation dialog.
 
 ### Return value
 
-A boolean indicating whether OK (`true`) or Cancel (`false`) was
-selected. If a browser is ignoring in-page dialogs, then the returned value is always
-`false`.
+A boolean indicating whether OK (`true`) or Cancel (`false`) was selected.
+If a browser is ignoring in-page dialogs, then the returned value is always `false`.
 
-## Example
+## Examples
 
-```js
-if (window.confirm("Do you really want to leave?")) {
-  window.open("exit.html", "Thanks for Visiting!");
-}
+### Confirming before an action
+
+The following example shows how to check the returned value of a confirmation dialog.
+When the user clicks the OK button, we call {{domxref("window.open()")}}, and if the user clicks Cancel, we print some text to a {{htmlelement("pre")}} element.
+
+```html live-sample___confirm
+<button id="windowButton">Open new tab</button>
+<pre id="log"></pre>
 ```
 
-Produces:
+```js live-sample___confirm
+const windowButton = document.querySelector("#windowButton");
+const log = document.querySelector("#log");
 
-![firefox confirm](firefoxcomfirmdialog_zpsf00ec381.png)
+windowButton.addEventListener("click", () => {
+  if (window.confirm("Do you want to open in new tab?")) {
+    window.open("https://developer.mozilla.org/en-US/docs/Web/API/Window/open");
+  } else {
+    log.innerText = "Glad you're staying!";
+  }
+});
+```
 
-
+{{EmbedLiveSample('confirm', , , , , , , 'allow-modals allow-popups')}}
 
 ## Notes
 
-Dialog boxes are modal windows — they
-prevent the user from accessing the rest of the program's interface until the dialog box
-is closed. For this reason, you should not overuse any function that creates a dialog
-box (or modal window). Regardless, there are good reasons to [avoid using dialog boxes for
-confirmation](https://alistapart.com/article/neveruseawarning/).
+Dialog boxes are modal windows — they prevent the user from accessing the rest of the program's interface until the dialog box is closed.
+For this reason, you should not overuse any function that creates a dialog box or a modal window.
+Alternatively, a {{HTMLElement("dialog")}} element can be used for confirmations.
 
 ## Specifications
 
@@ -65,5 +72,7 @@ confirmation](https://alistapart.com/article/neveruseawarning/).
 
 ## See also
 
+- {{HTMLElement("dialog")}} element
 - {{domxref("window.alert()")}}
 - {{domxref("window.prompt()")}}
+- [Never Use a Warning When you Mean Undo](https://alistapart.com/article/neveruseawarning/) on A List Apart (2017)

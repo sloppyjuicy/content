@@ -1,65 +1,31 @@
 ---
-title: WorkerGlobalScope.performance
+title: "WorkerGlobalScope: performance property"
+short-title: performance
 slug: Web/API/WorkerGlobalScope/performance
-tags:
-  - API
-  - CheckExample
-  - Performance
-  - Property
-  - Read-only
-  - Reference
-  - WorkerGlobalScope
-browser-compat: api.WorkerGlobalScope.performance
+page-type: web-api-instance-property
+browser-compat: api.performance
 ---
-{{APIRef("Web Workers API")}}
 
-The  **`performance`** read-only property of the
-{{domxref("WorkerGlobalScope")}} interface returns a {{domxref("Performance")}} object
-to be used on the worker.
+{{APIRef("Performance API")}}{{AvailableInWorkers("worker")}}
 
-> **Note:** Not all {{domxref("Performance")}} properties and methods are available to Web
-> workers.
+The **`performance`** property of the {{domxref("WorkerGlobalScope")}} interface returns a {{domxref("Performance")}} object, which can be used to gather performance information about code running in the worker's scope.
 
-This property is {{readonlyInline}}.
+Performance entries are per context. If you create a mark on a worker thread, you will not see it in the main thread or any other workers.
 
-## Syntax
+Note that only the following performance interfaces are available in worker contexts:
 
-```js
-var perfObj = self.performance;
-```
+- {{domxref("Performance")}}
+- {{domxref("PerformanceEntry")}}
+- {{domxref("PerformanceMark")}}
+- {{domxref("PerformanceMeasure")}}
+- {{domxref("PerformanceObserver")}}
+- {{domxref("PerformanceObserverEntryList")}}
+- {{domxref("PerformanceResourceTiming")}}
+- {{domxref("PerformanceServerTiming")}}
 
-### Return Value
+## Value
 
-A {{domxref("Performance")}} object.
-
-## Example
-
-If you called
-
-```js
-console.log(performance);
-```
-
-inside a worker (which would basically be the equivalent of
-`self.console.log(self.performance);`, as these are being called on the
-worker scope, which can be referenced with {{domxref("WorkerGlobalScope.self")}}), you
-will get a {{domxref("WorkerPerformance")}} object written to the console — something
-like the following:
-
-```js
-WorkerPerformance {now: function}
-  __proto__: WorkerPerformance
-    constructor: function WorkerPerformance() { [native code] }
-    now: function now() { [native code] }
-    __proto__: Object
-```
-
-You could use this performance object to return performance data, as you might do with
-a normal {{domxref("Performance")}} object.
-
-> **Note:** Firefox has a bug with using `console.log` inside
-> shared/service workers (see {{Bug("1058644")}}), which may return strange results, but
-> this should be fixed soon.
+A {{domxref("Performance")}} object offering access to performance and timing-related information for the context it is called on.
 
 ## Specifications
 
@@ -71,4 +37,4 @@ a normal {{domxref("Performance")}} object.
 
 ## See also
 
-- {{domxref("Performance")}}
+- {{domxref("Window.performance")}}
